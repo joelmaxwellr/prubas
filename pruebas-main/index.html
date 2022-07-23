@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"  id="nombre">
+    <input type="text"  id="edad">
+    <input type="button" value="Guardar" id="btn" >
+    <div id="salida"></div>
+
+    <script>
+let nombre = document.getElementById("nombre")
+let edad = document.getElementById("edad")
+let btn = document.getElementById("btn")
+let salida = document.getElementById("salida")
+
+/* localStorage.setItem("nombre" , " joel")
+localStorage.setItem("edad" , " 28")
+ */
+btn.onclick = function () {
+    const key = nombre.value
+    const  value = edad.value
+
+   console.log(key)
+   console.log(value)
+    
+   if(key && value){
+
+    localStorage.setItem(key, value)
+   
+   // location.reload()
+   }
+}
+
+for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    const value= localStorage.getItem(key);
+    console.log(value)
+    salida.innerHTML += `${key}: ${value} <br />`
+}
+
+    </script>
+</body>
+</html>
